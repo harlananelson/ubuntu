@@ -15,16 +15,16 @@ libxml2-dev is need to install some r packages like readODS
 
 ## Spotify for Linux: Instructions from Spotify.
 ### 1. Add the Spotify repository signing keys to be able to verify downloaded packages
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886 0DF731E45CE24F27EEEB1450EFDC8610341D9410
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886 0DF731E45CE24F27EEEB1450EFDC8610341D9410
 
 ### 2. Add the Spotify repository
-echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+    echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 
 ### 3. Update list of available packages
-sudo apt-get update
+    sudo apt-get update
 
 ### 4. Install Spotify
-sudo apt-get install spotify-client
+    sudo apt-get install spotify-client
 
 ## Install google chrome. 
 This is needed because google chrome has flash. Firefox doesn't.  You can install flash in firefox, but what's the point.
