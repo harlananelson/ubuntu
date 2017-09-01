@@ -6,7 +6,8 @@ https://askubuntu.com/questions/902992/ubuntu-gnome-17-04-wi-fi-not-working-mac-
 edit `/etc/NetworkManager/NetworkManager.conf`
 add the two lines:
 
-```   [device]
+```   
+   [device]
    wifi.scan-rand-mac-address=no
 ```
 
