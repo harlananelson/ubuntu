@@ -2,9 +2,10 @@
 * There seems to be a problem with my belkin usb wireless adapter.  
 https://askubuntu.com/questions/902992/ubuntu-gnome-17-04-wi-fi-not-working-mac-address-keeps-changing
 
-This stops the MAC address from changing constantly. The code below will disble this security feature, but the wireless will work.
+ This stops the MAC address from changing constantly. The code below will disble this security feature, but the wireless will work.
 edit `/etc/NetworkManager/NetworkManager.conf`
 add the two lines:
+
 `[device]
 wifi.scan-rand-mac-address=no`
 
