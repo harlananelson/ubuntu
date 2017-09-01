@@ -10,7 +10,6 @@ add the two lines:
    [device]
    wifi.scan-rand-mac-address=no
 ```
-
 Whenever needed, you can get rid if unneeded versions using 
 
     sudo apt autoremove
