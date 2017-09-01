@@ -13,9 +13,9 @@
 Whenever needed, you can get rid if unneeded versions using 
 
     sudo apt autoremove
-libxml2-dev is need to install some r packages like readODS
+libxml2-dev is needed to install some r packages like readODS
 
-    sudo apt-get install libxml2-dev```
+    sudo apt-get install libxml2-dev
 ## Install emacs
     sudo apt-get install emacs
 ## Install git
@@ -42,11 +42,67 @@ This is needed because google chrome has flash. Firefox doesn't.  You can instal
 
 https://askubuntu.com/questions/510056/how-to-install-google-chrome
 
-    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-
+    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
     sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
     sudo apt-get update
     sudo apt-get install google-chrome-stable
 
+## Install Anaconda
+Your PATH and PYTHONHOME variables will have to be modified.  
+This is done by the anaconda installer to ~/.bashrc 
+Here is the NTAWolf answer on 
+    https://askubuntu.com/questions/505919/how-to-install-anaconda-on-ubuntu
+```
+CONTREPO=https://repo.continuum.io/archive/
+# Stepwise filtering of the html at $CONTREPO
+# Get the topmost line that matches our requirements, extract the file name.
+ANACONDAURL=$(wget -q -O - $CONTREPO index.html | grep "Anaconda3-" | grep "Linux" | grep "86_64" | head -n 1 | cut -d \" -f 2)
+wget -O ~/Downloads/anaconda.sh $CONTREPO$ANACONDAURL
+bash ~/Downloads/anaconda.sh
+```
+
+
+## install R 
+https://cran.r-project.org/bin/linux/ubuntu/README.html
+
+It does not seem like you need to add a cran repository to `/etc/apt/sources.list`.
+    sudo apt-get install r-base
+    sudo apt-get install r-base-dev
+
+Open Software & Updates and enable "Source code"
+This allows you to build
+You can load package ess using:
+
+    sudo apt-get build-dep ess 
+add a key to your system
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+
+sudo su - -c "R -e \"install.packages('Rccp', repos='http://cran.rstudio.com/')\""
+sudo su - -c "R -e \"install.packages('htmltools', repos='http://cran.rstudio.com/')\""
+
+Some of these might need to be tried more that once.
+
+
+sudo su - -c "R -e \"install.packages('shiny', repos='http://cran.rstudio.com/')\""
+
+sudo apt-get install -y default-jdk
+
+sudo chmod 777 /usr/local/lib/R/site-library
+sudo su  - -c "R -e \"install.packages(c('RJDBC','XLConnect','devtools','RJSONIO','sp','png','pixmap','mapdata','mpatools','maps','rgeos'),repos='http://cran.rstudio.com/')\""
+
+sudo su - -c "R -e \"install.packages(c('RJDBC'),repos='http://cran.rstudio.com/')\""
+sudo su - -c "R -e \"install.packages(c('XLConnect'),repos='http://cran.rstudio.com/')\""
+
+sudo su - -c "R -e \"install.packages(c('devtools'),repos='http://cran.rstudio.com/')\""
+
+sudo su - -c "R -e \"install.packages(c('RJSONIO'),repos='http://cran.rstudio.com/')\""
+
+install r studio by point and click
+
+install shinypt-get install -y default-jdk
+
+## Install golang
+`sudoapt-get install golang-go 
 
 
 
