@@ -1,29 +1,101 @@
-# Things to do after installation
-* There seems to be a problem with my belkin usb wireless adapter.  
-  https://askubuntu.com/questions/902992/ubuntu-gnome-17-04-wi-fi-not-working-mac-address-keeps-changing
+# Things to do after installation of Ubuntu
 
-  This stops the MAC address from changing constantly. The code below will disble this security feature, but the wireless will work.
-  edit `/etc/NetworkManager/NetworkManager.conf`
-  add the two lines:
+## Fix the wireless router
+    There seems to be a problem with my belkin usb wireless adapter.  
+    https://askubuntu.com/questions/902992/ubuntu-gnome-17-04-wi-fi-not-working-mac-address-keeps-changing
+	
 
-```   
-   [device]
-   wifi.scan-rand-mac-address=no
+```bash 
+[device]
+wifi.scan-rand-mac-address=no
 ```
-Whenever needed, you can get rid if unneeded versions using 
 
-    sudo apt autoremove
-libxml2-dev is needed to install some r packages like readODS
+    This stops the MAC address from changing constantly. The code below will disable this security feature, but the wireless will work.
+    edit `/etc/NetworkManager/NetworkManager.conf`
+    add the two lines:
 
-    sudo apt-get install libxml2-dev
+
+
+## install pandoc
+    sudo apt-get install pandoc
+
 ## Install emacs
     sudo apt-get install emacs
+   
+## install el-get to emacs
+https://github.com/dimitri/el-get
+First you can use lisp to clone the el-get github repository
+  ```Lisp
+   ;; So the idea is that you copy/paste this code into your *scratch* buffer,
+;; hit C-j, and you have a working el-get.
+(url-retrieve
+ "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el"
+ (lambda (s)
+   (goto-char (point-max))
+   (eval-print-last-sexp)))
+   ```
+Using the Basic Setup, copy this into the .emacs file
+```{Lisp}
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffe
+      (url-retrieve-synchronously
+       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(el-get 'sync)
+```
+
+ markdown-mode to emacs
+https://stable.melpa.org/#/markdown-mode# 
+``` Lisp
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(package-initialize)
+```
+
+## Install Mercurial
+https://confluence.atlassian.com/get-started-with-bitbucket/mercurial-setup-860009660.html
+sudo apt-get install mercurial
+
+### clone vim-mode
+hg clone https://bitbucket.org/lyro/vim-mode
+https://www.emacswiki.org/emacs/VimMode
+
+Add to your .emacs file
+```lisp
+(add-to-list 'load-path "/path/to/vim-mode")
+    (require 'v)
+    (vim-mode 1)
+```	
+initiate viper mode in emacs
+
+## Install markdown
+https://www.emacswiki.org/emacs/MarkdownPreviewMode
+This is needed so that ```markdown-preview mode works in in emacs
+sudo apt-get install markdown
+
+## Install preview mode
+```emacs
+   package-install markdown-preview-mode
+```
 ## Install git
     sudo apt-get install git
 ## Install xclip
     sudo apt-get install xclip
 # Set up the Github key.  See git hub instructions
 
+
+Whenever needed, you can get rid if unneeded versions using 
+
+    sudo apt autoremove
+libxml2-dev is needed to install some r packages like readODS
+
+    sudo apt-get install libxml2-dev
 ## Spotify for Linux: Instructions from Spotify.
 ### 1. Add the Spotify repository signing keys to be able to verify downloaded packages
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886 0DF731E45CE24F27EEEB1450EFDC8610341D9410
