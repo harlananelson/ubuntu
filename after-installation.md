@@ -1,7 +1,7 @@
-# Things to do after installation of Ubuntu
+# Things to do after installation of Ubuntu/Lubuntu
 I have installed Ubuntu twice now and documented what I did. This document changes every time as I 
-learn new things each time. To install Ubuntu, you need to go to the download site and also create a bootable usb key
-you will use for the installation. That's easy. This downment shows you what to do afterwards.
+learn new things each time. To install Ubuntu, you need to go to the download site and also create a bootable usb key that
+you will use for the installation. That's easy. This document shows you what to do afterwards.
 
 ## Install xclip
 This program will let you copy your public key to the buffer.  It is needed when you upload your git key to gihub. 
@@ -10,7 +10,10 @@ It is also lets you paste into the terminal using <shift> <insert>
     sudo apt-get install xclip
 
 ## Install git
+
+```bash
     sudo apt-get install git
+```
 
 ## Set up the Github key.  See git hub instructions
 https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
@@ -19,24 +22,27 @@ https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-s
 You will need this in rstudio to create pdf documents
 https://help.ubuntu.com/community/LaTeX
 
-```
+
+```bash
      sudo apt-get update
 	 sudo apt-get install texlive-full
 ```
+
 ## install pandoc
 Pandoc is also used for document conversion
 
-```
+```bash
     sudo apt-get install pandoc
 ```
 
 ## Install emacs
+If you don't use emacs, skip this step.
 
-```
+```bash
     sudo apt-get install emacs
 ```
    
-## install el-get to emacs
+## install el-get for emacs
 https://github.com/dimitri/el-get
 This will be the way Lisp packages are installed.
 
@@ -54,11 +60,7 @@ Use
     el-get-install markdown-mode
 ```
 
-
 ## Install Anaconda
-Your PATH and PYTHONHOME variables will have to be modified.  
-This is done by the anaconda installer to ~/.bashrc 
-Here is the NTAWolf answer on 
     https://askubuntu.com/questions/505919/how-to-install-anaconda-on-ubuntu
 Don't use sudo.  Install anacondo without using sudo. 
 
@@ -71,9 +73,11 @@ wget -O ~/Downloads/anaconda.sh $CONTREPO$ANACONDAURL
 bash ~/Downloads/anaconda.sh
 ```
 
-close your terminal and open a new one to get the .bashrc code to run, or use load.
-You will need to update after installation.  use `conda`  This is why you can't use sudo to insall.  `conda` doesn't work with sudo.
-The not when you first load spyder tells you to use pip and the screen when spyder loads tells you not to use pip.  Use `conda` instead of pip.
+Close your terminal and open a new one to get the .bashrc code to run, or use load.
+
+You will need to update spyder after installation.  Use `conda`  This is why you can't use sudo to insall.  `conda` doesn't work with sudo.
+The note when you first load spyder tells you to use pip and the screen, when spyder loads, tells you not to use pip.  
+Use `conda` instead of pip.
 
 https://github.com/spyder-ide/spyder/releases
 
@@ -82,22 +86,25 @@ conda update qt pyqt
 conda update spyder
 ```
 
-
 ## install R 
 https://anaconda.org/r/rstudio
 https://conda.io/docs/user-guide/tasks/use-r-with-conda.html
-if you have anaconda use
-```
+if you have anaconda use:
+
+```bash
 conda install r-essentials
 conda install -c r rstudio
 ```
 
 ## Install golang
 
-```sudoapt-get install golang-go 
+https://github.com/juhovh/shairplay
+
+
+```bash
+sudoapt-get install golang-go 
 ```
 
-https://github.com/juhovh/shairplay
 
 ## SAS university edition
 https://askubuntu.com/questions/367248/how-to-install-virtualbox-from-command-line
@@ -108,8 +115,6 @@ http://www.oracle.com/technetwork/server-storage/virtualbox/downloads/index.html
 apt-get install virtualbox
 ```
 https://stegard.net/2016/10/virtualbox-secure-boot-ubuntu-fail/
-
-
 
 ## Remove old unused packages
 Whenever needed, you can get rid if unneeded versions using 
