@@ -3,41 +3,17 @@ I have installed Ubuntu twice now and documented what I did. This document chang
 learn new things each time. To install Ubuntu, you need to go to the download site and also create a bootable usb key
 you will use for the installation. That's easy. This downment shows you what to do afterwards.
 
-## Fix the wireless router
-There seems to be a problem with my belkin usb wireless adapter.  
-https://askubuntu.com/questions/902992/ubuntu-gnome-17-04-wi-fi-not-working-mac-address-keeps-changing
-	
-The  mac address is changes constantly as a security feature.
-The code below will disable this security feature, by stops the MAC address from changing constantly but the wireless will work.
-Add the following two lines of code to the end of 
-`/etc/NetworkManager/NetworkManager.conf `
-```bash 
-[device]
-wifi.scan-rand-mac-address=no
-```
-## Install LaTex
-https://www.howtoinstall.co/en/ubuntu/xenial/texlive-latex-extra
-     sudo apt-get update
-     sudo apt-get install texlive-latex-extra
+## Install xclip
+This program will let you copy your public key to the buffer.  It is needed when you upload your git key to gihub. 
+It is also lets you paste into the terminal using <shift> <insert>
 
-## install pandoc
-    sudo apt-get install pandoc
+    sudo apt-get install xclip
 
-## install node.js
+## Install git
+    sudo apt-get install git
 
-``` bash
-sudo apt-get install nodejs
-```
-
-https://stackoverflow.com/questions/13203335/set-node-js-to-path-ubuntu-12-04
-
-Next you need to create a symbolic link from node to nodejs
-
-
-``` bash
-cd /usr/bin/
-sudo ln -s nodejs node
-```
+## Set up the Github key.  See git hub instructions
+https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 
 ## Install emacs
     sudo apt-get install emacs
@@ -118,12 +94,43 @@ sudo apt-get install markdown
 his is whay nodejs and npm was installed earlier.
 https://github.com/shime/livedown
 
-## Install git
-    sudo apt-get install git
-## Install xclip
-    sudo apt-get install xclip
-## Set up the Github key.  See git hub instructions
 
+
+## Fix the wireless router
+There seems to be a problem with my belkin usb wireless adapter.  
+https://askubuntu.com/questions/902992/ubuntu-gnome-17-04-wi-fi-not-working-mac-address-keeps-changing
+	
+The  mac address is changes constantly as a security feature.
+The code below will disable this security feature, by stops the MAC address from changing constantly but the wireless will work.
+Add the following two lines of code to the end of 
+`/etc/NetworkManager/NetworkManager.conf `
+```bash 
+[device]
+wifi.scan-rand-mac-address=no
+```
+## Install LaTex
+https://www.howtoinstall.co/en/ubuntu/xenial/texlive-latex-extra
+     sudo apt-get update
+     sudo apt-get install texlive-latex-extra
+
+## install pandoc
+    sudo apt-get install pandoc
+
+## install node.js
+
+``` bash
+sudo apt-get install nodejs
+```
+
+https://stackoverflow.com/questions/13203335/set-node-js-to-path-ubuntu-12-04
+
+Next you need to create a symbolic link from node to nodejs
+
+
+``` bash
+cd /usr/bin/
+sudo ln -s nodejs node
+```
 
 Whenever needed, you can get rid if unneeded versions using 
 
