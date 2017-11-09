@@ -9,7 +9,9 @@ you will use for the installation. That's easy. This document shows you what to 
 This program will let you copy your public key to the buffer.  It is needed when you upload your git key to gihub. 
 It is also lets you paste into the terminal using <shift> <insert>
 
+```bash
     sudo apt-get install xclip
+```
 
 ## Install git
 
@@ -29,26 +31,27 @@ ssh-add -k ~/.ssh/id_rsa
 
 ## Install LaTeX
 You will need this in rstudio to create pdf documents
+
 https://help.ubuntu.com/community/LaTeX
 
 
 ```bash
-     sudo apt-get update
-	 sudo apt-get install texlive-full
+sudo apt-get update
+sudo apt-get install texlive-full
 ```
 
 ## install pandoc
 Pandoc is also used for document conversion.
 
 ```bash
-    sudo apt-get install pandoc
+sudo apt-get install pandoc
 ```
 
 ## Install emacs
 If you don't use emacs, skip this step.
 
 ```bash
-    sudo apt-get install emacs
+sudo apt-get install emacs
 ```
    
 ## install el-get for emacs
@@ -63,23 +66,23 @@ will not reload after you exit and reenter emacs.
 
 ## markdown-mode to emacs
 This lets you edit markdown code for pushing to github.
-Use 
+Inside emacs use 
 
-```
-    el-get-install markdown-mode
+```emacs
+el-get-install markdown-mode
 ```
 
 ## Install Anaconda
     https://askubuntu.com/questions/505919/how-to-install-anaconda-on-ubuntu
-Don't use sudo.  Install anacondo without using sudo. 
+Don't use sudo.  Install anacondo without using sudo.as 
 
 ```
-CONTREPO=https://repo.continuum.io/archive/
-# Stepwise filtering of the html at $CONTREPO
-# Get the topmost line that matches our requirements, extract the file name.
-ANACONDAURL=$(wget -q -O - $CONTREPO index.html | grep "Anaconda3-" | grep "Linux" | grep "86_64" | head -n 1 | cut -d \" -f 2)
-wget -O ~/Downloads/anaconda.sh $CONTREPO$ANACONDAURL
-bash ~/Downloads/anaconda.sh
+    CONTREPO=https://repo.continuum.io/archive/
+    # Stepwise filtering of the html at $CONTREPO
+    # Get the topmost line that matches our requirements, extract the file name.
+    ANACONDAURL=$(wget -q -O - $CONTREPO index.html | grep "Anaconda3-" | grep "Linux" | grep "86_64" | head -n 1 | cut -d \" -f 2)
+    wget -O ~/Downloads/anaconda.sh $CONTREPO$ANACONDAURL
+    bash ~/Downloads/anaconda.sh
 ```
 
 Close your terminal and open a new one to get the .bashrc code to run, or use load.
@@ -121,7 +124,8 @@ sudo apt-get install at-spi2-core
 ## install R 
 https://anaconda.org/r/rstudio
 https://conda.io/docs/user-guide/tasks/use-r-with-conda.html
-If you have anaconda use:
+
+Use anaconda:
 
 ```bash
 conda install r-essentials
