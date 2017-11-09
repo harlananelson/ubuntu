@@ -116,6 +116,16 @@ apt-get install virtualbox
 ```
 https://stegard.net/2016/10/virtualbox-secure-boot-ubuntu-fail/
 
+## Fix errors
+https://www.raspberrypi.org/forums/viewtopic.php?t=196070
+
+There is a problem running python from the command line. It might get fixed,
+but the works for now.
+
+```bash
+sudo apt-get install at-spi2-core
+```
+
 ## Remove old unused packages
 Whenever needed, you can get rid if unneeded versions using 
 
