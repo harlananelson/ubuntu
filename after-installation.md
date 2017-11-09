@@ -1,6 +1,8 @@
 # Things to do after installation of Ubuntu/Lubuntu
-I have installed Ubuntu twice now and documented what I did. This document changes every time as I 
-learn new things each time. To install Ubuntu, you need to go to the download site and also create a bootable usb key that
+This is a documentation of what I do after installing Lubuntu.  
+After following the steps below, my disk showed 23.21 GiB used.
+
+I am currently using Lubuntu.  You could also use Ubuntu. to install, you need to go to the download site and also create a bootable usb key that
 you will use for the installation. That's easy. This document shows you what to do afterwards.
 
 ## Install xclip
@@ -18,6 +20,13 @@ It is also lets you paste into the terminal using <shift> <insert>
 ## Set up the Github key.  See git hub instructions
 https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
 
+You might want to save the passcode so you don't have to keep entering it.
+https://stackoverflow.com/questions/21095054/ssh-key-still-asking-for-password-and-passphrase
+
+```bash
+ssh-add -k ~/.ssh/id_rsa
+```
+
 ## Install LaTeX
 You will need this in rstudio to create pdf documents
 https://help.ubuntu.com/community/LaTeX
@@ -29,7 +38,7 @@ https://help.ubuntu.com/community/LaTeX
 ```
 
 ## install pandoc
-Pandoc is also used for document conversion
+Pandoc is also used for document conversion.
 
 ```bash
     sudo apt-get install pandoc
@@ -85,11 +94,34 @@ https://github.com/spyder-ide/spyder/releases
 conda update qt pyqt
 conda update spyder
 ```
+## Install Some Office Tools
+###LibreOffice
+If you are using Ubuntu, you have this already.
+
+```bash
+sudo apt-get install libreoffice
+```
+## Use VIM as your default editor 
+
+```bash
+export VISUAL=vim
+export EDITOR="$VISUAL"
+```
+
+## Fix errors
+https://www.raspberrypi.org/forums/viewtopic.php?t=196070
+
+There is a problem running python from the command line. It might get fixed,
+but the works for now.
+
+```bash
+sudo apt-get install at-spi2-core
+```
 
 ## install R 
 https://anaconda.org/r/rstudio
 https://conda.io/docs/user-guide/tasks/use-r-with-conda.html
-if you have anaconda use:
+If you have anaconda use:
 
 ```bash
 conda install r-essentials
@@ -116,15 +148,6 @@ apt-get install virtualbox
 ```
 https://stegard.net/2016/10/virtualbox-secure-boot-ubuntu-fail/
 
-## Fix errors
-https://www.raspberrypi.org/forums/viewtopic.php?t=196070
-
-There is a problem running python from the command line. It might get fixed,
-but the works for now.
-
-```bash
-sudo apt-get install at-spi2-core
-```
 
 ## Remove old unused packages
 Whenever needed, you can get rid if unneeded versions using 
