@@ -156,6 +156,44 @@ conda install r-essentials
 conda install rstudio
 ```
 
+As soon as you install r  and rstudio, you need to start up rstudio and
+the try to install that package that you love and knowone else knows about.
+This will test to see if your system is set up to install obscure packages.
+I use the gk package.  Packages are installed inside r with 
+
+```install.packages()
+```
+
+You can also use conda with
+```conda install r-ggplot2
+```
+
+But conda looks for binaries that are available.  
+There is nothing for r-gk so I have to use 
+```install.packages()
+```
+However this produced and error about gnu-gcc and the package didn't install.
+This stackoverflow had the answer:
+https://stackoverflow.com/questions/46450912/unable-to-execute-x86-64-conda-cos6-linux-gnu-gcc-no-such-file-or-directory
+
+The comment by 
+https://stackoverflow.com/users/3257826/ray-donnelly
+is to use:
+```
+conda create -n renv r-essentials=1.7.0 gcc_linux-64
+source activate renv
+```
+There is another user
+https://stackoverflow.com/users/1170370/msarahan
+who mentioned that activation sets a bunch of important variables
+so even if you don't have a bunch of environments, it is still 
+a good idea to active.
+```
+source activate root
+```
+I was able to get rstudio running in the renv above and get the gk 
+package to install. 
+
 ## Install golang
 
 https://github.com/juhovh/shairplay
