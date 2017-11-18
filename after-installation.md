@@ -72,6 +72,24 @@ Inside emacs use
 el-get-install markdown-mode
 ```
 
+## install node.js
+This is needed for the emacs pluging livedown (listed next) to work.
+
+``` bash
+sudo apt-get install nodejs
+sudo apt-get install npm
+npm install -g livedown
+```
+
+## install livedown.
+https://github.com/shime/livedown
+This is whay nodejs and npm was installed earlier.
+Inside emacs, use: 
+
+```
+el-get install livedown
+```
+
 ## Install Anaconda
     https://askubuntu.com/questions/505919/how-to-install-anaconda-on-ubuntu
 Don't use sudo.  Install anacondo without using sudo.as 
@@ -96,6 +114,12 @@ https://github.com/spyder-ide/spyder/releases
 ```bash
 conda update qt pyqt
 conda update spyder
+```
+
+## Install Tensorflow
+
+```bash
+conda install tensorflow
 ```
 ## Install Some Office Tools
 ###LibreOffice
@@ -129,7 +153,7 @@ Use anaconda:
 
 ```bash
 conda install r-essentials
-conda install -c r rstudio
+conda install rstudio
 ```
 
 ## Install golang
