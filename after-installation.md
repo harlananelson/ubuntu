@@ -151,14 +151,23 @@ https://conda.io/docs/user-guide/tasks/use-r-with-conda.html
 
 Use anaconda:
 
+Make sure you are in an environment first, even if it is the root.
+
+```
+source activate root
+```
+
+
 ```bash
 conda install r-essentials
 conda install rstudio
 ```
 
 As soon as you install r  and rstudio, you need to start up rstudio and
-the try to install that package that you love and knowone else knows about.
-This will test to see if your system is set up to install obscure packages.
+the try to install that package that you love and no one else knows about.
+This will test to see if your system is set up to install obscure packages with
+dependencies.  
+
 I use the gk package.  Packages are installed inside r with 
 
 ```bash
@@ -166,18 +175,22 @@ install.packages()
 ```
 
 You can also use conda with
+
 ```bash
 conda install r-ggplot2
 ```
 
-But conda looks for binaries that are available.  
+Many times if a package will not install because of dependencies, you can 
+still use conda to install the package. 
+Here is an example installation.
+Conda looks for binaries that are available.  
 There is nothing for r-gk so I have to use 
 
 ```bash
 install.packages()
 ```
 
-However this produced and error about gnu-gcc and the package didn't install.
+However this produced and error message about gnu-gcc and the package didn't install.
 This stackoverflow had the answer:
 
 https://stackoverflow.com/questions/46450912/unable-to-execute-x86-64-conda-cos6-linux-gnu-gcc-no-such-file-or-directory
@@ -204,7 +217,22 @@ a good idea to active.
 source activate root
 ```
 I was able to get rstudio running in the renv above and get the gk 
-package to install. 
+package to install.  A combination of the two answers would indicate
+that I only needed to install gcc_linux-64 into the root environment.
+I avoid using a version number on packages becuase the default would be the
+latest one.   If you are worried about versioning, you can have conda 
+environments with the exact versions of packages you need.  But I would 
+suggest that if you are worried about what version of a package is needed to
+make sure your code works and isn't brocken by some update, then use Microsoft R Open.
+The whole point of MRO is to limit the frequency of updates to ensure that new versions
+don't break things.  I don't like it because I want the latest, but if you are worried about
+thing breaking, use MRO. Also RevolutionR was bought by MS and their guys are most likely the 
+ones managing it.  That is a plus.  I recommend having at least one environment where MRO is 
+used. 
+
+https://conda.io/docs/user-guide/tasks/use-mro-with-conda.html
+
+
 
 ## Install golang
 
