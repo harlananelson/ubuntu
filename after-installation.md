@@ -118,9 +118,14 @@ conda update spyder
 
 ## Install Tensorflow
 
+Read this before you install tensorflow.
+
+https://www.tensorflow.org/install/install_linux
+
 ```bash
 conda install tensorflow
 ```
+
 ## Install Some Office Tools
 ###LibreOffice
 If you are using Ubuntu, you have this already.
@@ -223,7 +228,7 @@ I avoid using a version number on packages becuase the default would be the
 latest one.   If you are worried about versioning, you can have conda 
 environments with the exact versions of packages you need.  But I would 
 suggest that if you are worried about what version of a package is needed to
-make sure your code works and isn't brocken by some update, then use Microsoft R Open.
+make sure your code works and isn't brocken by some update then use Microsoft R Open.
 The whole point of MRO is to limit the frequency of updates to ensure that new versions
 don't break things.  I don't like it because I want the latest, but if you are worried about
 thing breaking, use MRO. Also RevolutionR was bought by MS and their guys are most likely the 
