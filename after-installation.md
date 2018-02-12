@@ -1,8 +1,9 @@
 # Things to do after installation of Ubuntu/Lubuntu
+
 This is a documentation of what I do after installing Lubuntu.  
 After following the steps below, my disk showed 23.21 GiB used.
 
-I am currently using Lubuntu.  You could also use Ubuntu. to install, you need to go to the download site and also create a bootable usb key that
+am currently using Lubuntu.  You could also use Ubuntu. to install, you need to go to the download site and also create a bootable usb key that
 you will use for the installation. That's easy. This document shows you what to do afterwards.
 
 ## Install xclip
@@ -40,6 +41,151 @@ sudo apt-get update
 sudo apt-get install texlive-full
 ```
 
+## install pandoc
+Pandoc is also used for document conversion.
+
+```bash
+sudo apt-get install pandoc
+```
+
+## Install emacs
+If you don't use emacs, skip this step.
+
+```bash
+sudo apt-get install emacs
+```
+   
+## install el-get for emacs
+https://github.com/dimitri/el-get
+This is one way to install Lisp packages in emacs.  There are other ways, but this 
+works well for me.
+
+Go to https://github.com/dimitri/el-get and the section *The Lazy Installer*
+Copy that into the *scratch* as indicated and run it.
+Then go to the basic setup and copy that, as indicated, to the .emacs file.
+If you don't copy to the .emacs file, then the packages you install 
+will not reload after you exit and reenter emacs.
+
+## Setup markdown mode to use pandoc
+
+Pandoc can be used to view markdown.  Use 
+    C-c C-c p
+to request the preview.  The markdown command shown below 
+will be run and call pandoc.
+
+
+```{emacs}
+;; pandoc-mode
+(add-hook 'markdown-mode-hook 'pandoc-mode)
+(setq markdown-command
+      "pandoc -f markdown -t html -s --mathjax ")
+```
+## markdown-mode to emacs
+This lets you edit markdown code for pushing to github.
+If the pandoc command listed above works, you won't need this.
+Inside emacs use 
+
+```emacs
+el-get-install markdown-mode
+```
+
+## install node.js
+This is needed for the emacs pluging livedown (listed next) to work.
+
+``` bash
+sudo apt-get install nodejs
+sudo apt-get install npm
+npm install -g livedown
+```
+
+## install livedown.
+https://github.com/shime/livedown
+Livedown is a usefull way to view markdown.  It requires nodejs and npm.
+The advantage of livedown over using pandoc is that when you save a md file,
+livedown will show the results immediately.  
+Inside emacs, use: 
+
+```
+el-get-install livedown
+```
+
+## Install Anaconda
+    https://askubuntu.com/questions/505919/how-to-install-anaconda-on-ubuntu
+Don't use sudo.  Install anacondo without using sudo.as 
+
+```
+CONTREPO=https://repo.continuum.io/archive/
+# Stepwise filtering of the html at $CONTREPO
+# Get the topmost line that matches our requirements, extract the file name.
+ANACONDAURL=$(wget -q -O - $CONTREPO index.html | grep "Anaconda3-" | grep "Linux" | grep "86_64" | head -n 1 | cut -d \" -f 2)
+wget -O ~/Downloads/anaconda.sh $CONTREPO$ANACONDAURL
+bash ~/Downloads/anaconda.sh
+```
+
+Close your terminal and open a new one to get the .bashrc code to run, or use load.
+
+You will need to update spyder after installation.  Use `conda`  This is why you can't use sudo to insall.  `conda` doesn't work with sudo.
+The note when you first load spyder tells you to use pip and the screen, when spyder loads, tells you not to use pip.  
+Use `conda` instead of pip.  The code is shown below 
+
+https://github.com/spyder-ide/spyder/releases
+
+```bash
+conda update qt pyqt
+conda update spyder
+```
+
+## Install Tensorflow
+
+Read this before you install tensorflow.
+
+https://www.tensorflow.org/install/install_linux
+
+```bash
+conda install tensorflow
+```
+
+## Install Some Office Tools
+###LibreOffice
+If you are using Ubuntu, you have this already.
+
+```bash
+sudo apt-get install libreoffice
+```
+## Use VIM as your default editor 
+
+```bash
+export VISUAL=vim
+export EDITOR="$VISUAL"
+```
+
+## Fix errors
+https://www.raspberrypi.org/forums/viewtopic.php?t=196070
+
+There is a problem running python from the command line. It might get fixed,
+but the works for now.
+
+```bash
+sudo apt-get install at-spi2-core
+```
+## Install R 
+
+rstudio to create pdf documents
+
+https://help.ubuntu.com/community/LaTeX
+
+
+```bash
+sudo apt-get update
+sudo apt-get install texlive-full
+```
+
+```bash
+sudo apt-get install libcurl4-openssl-dev 
+sudo apt-get install libxml2-dev
+sudo apt-get install libssl-dev
+
+```
 ## install pandoc
 Pandoc is also used for document conversion.
 
@@ -149,8 +295,23 @@ but the works for now.
 ```bash
 sudo apt-get install at-spi2-core
 ```
+## Install R 
+http://cran.cnr.berkeley.edu/
 
-## install R 
+
+After you follow the berkeley directions, not that you can do this
+
+```bash
+sudo apt-get install r-cran-*
+```
+
+It will save you a ton of time.
+
+
+## Install Rstudio
+https://www.rstudio.com/products/rstudio/download/#download
+
+## install R the Conda Way (recommend not doing this but installing r with apt-get)
 https://anaconda.org/r/rstudio
 https://conda.io/docs/user-guide/tasks/use-r-with-conda.html
 
@@ -258,6 +419,16 @@ http://www.oracle.com/technetwork/server-storage/virtualbox/downloads/index.html
 apt-get install virtualbox
 ```
 https://stegard.net/2016/10/virtualbox-secure-boot-ubuntu-fail/
+
+## spotify
+http://howtoubuntu.org/how-to-install-spotify-in-ubuntu
+
+```bash
+sudo apt-add-repository -y "deb http://repository.spotify.com stable non-free" &&
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D2C19886 &&
+sudo apt-get update -qq &&
+sudo apt-get install spotify-client
+```
 
 
 ## Remove old unused packages
